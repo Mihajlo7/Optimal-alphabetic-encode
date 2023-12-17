@@ -12,3 +12,11 @@
 (defn length-array ^long [^chars array]
   (count array)
   )
+
+(defn letter-count  [^String text]
+  (reduce
+    (fn [counts char]
+      (update counts char (fnil inc 0)))
+    {}
+    text)
+  )
