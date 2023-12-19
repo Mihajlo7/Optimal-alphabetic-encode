@@ -21,5 +21,8 @@
     text)
   )
 
-(defn my-frequencies ^doubles [letter-map]
+(defn letter-count-array ^ints [letter-map]
+  (vals letter-map))
+
+(defn probability ^doubles [letter-map ^long n]
   (doubles (vals letter-map)))
