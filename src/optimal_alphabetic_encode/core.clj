@@ -21,5 +21,5 @@
     text)
   )
 
-(defn frequencies ^doubles [letter-map]
+(defn my-frequencies ^doubles [letter-map]
   (doubles (vals letter-map)))
