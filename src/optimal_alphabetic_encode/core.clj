@@ -24,5 +24,21 @@
 (defn letter-count-array ^ints [letter-map]
   (vals letter-map))
 
-(defn probability ^doubles [letter-map ^long n]
-  (doubles (vals letter-map)))
+(defn probability ^doubles [^ints array ^long n]
+  (amap array i  ret (/ (aget array i) n)))
+(defn probability-v1 ^doubles [^ints array ^long n]
+  (let [result (double-array (count array))]
+    (amap ^ints array i [result]  (/ (aget array i) n))
+    result))
+
+(defn probability-v2 ^doubles [^ints array ^long n]
+  (let [result (double-array (count array))]
+    (loop [i 0]
+      (when (< i (count array))
+        (aset result i (double (/ (aget array i) n)))
+        (recur (inc i))))
+    result))
+
+
+
+
