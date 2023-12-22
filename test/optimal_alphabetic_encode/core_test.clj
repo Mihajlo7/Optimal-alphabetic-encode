@@ -28,4 +28,12 @@
       (letter-count-array {\a 1})=> [1]
       (letter-count-array (letter-count "Danas"))=> [1 2 1 1])
 
+(fact "Testing function for probability"
+      (type (probability-v2 (int-array [1 2 3]) 6))=> (type (double-array 0.0))
+      (aget (probability-v2 (int-array [1 2 3]) 6) 0) => (double (/ 1 6))
+      (aget (probability-v2 (int-array [1 2 3]) 6) 1) => (double (/ 2 6))
+      (aget (probability-v2 (int-array [1 2 3]) 6) 2) => (double (/ 3 6))
+      (seq (probability-v2 (int-array []) 0)) => nil
+      (seq (probability-v2 nil 0))=> nil)
+
 
