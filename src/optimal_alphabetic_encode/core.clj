@@ -39,6 +39,27 @@
         (recur (inc i))))
     result))
 
+(defn optimal-encode [^doubles p ^long n]
+
+  (let [c-array (double-array (inc n))
+        g-matrix (make-array Double/TYPE (inc n) (inc n))
+        h-matrix (make-array Integer/TYPE (inc n) (inc n))]
+    ;; Initialization values
+    (aset c-array 0 0.0)
+    (loop [i 1]
+      (when (<= i n)
+        (aset g-matrix i i 0)
+        (aset c-array  i (+ (aget c-array (dec i)) (aget p (dec i))))
+        (recur (inc i))
+        )
+      )
+    ;; Optimization all pairs
+
+    c-array)
+  )
+
+
+
 
 
 
